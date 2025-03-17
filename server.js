@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(cors());
 
 const linkRoutes = require("./routes/linkRoutes");
-app.use("/api", linkRoutes);
+app.use("/url", linkRoutes);
 
 const PORT = process.env.PORT || 5000;
 

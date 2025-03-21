@@ -39,4 +39,15 @@ router.get("/:shortUrl", async (req, res) => {
     }
 });
 
+// Rota para listar os 10 links mais clicados
+router.get("/top-links", async (req, res) => {
+    try {
+        const topLinks = await Link.find().sort({ clicks: -1 }).limit(10);
+        res.json(topLinks);
+    } catch (err) {
+        res.status(500).json({ error: "Erro ao buscar os links mais clicados" });
+    }
+});
+
+
 module.exports = router;
